@@ -15,26 +15,28 @@ const Navbar = () => {
   const getDashboardLink = () => {
     if (user?.role === "ADMIN") return "/admin/dashboard";
     if (user?.role === "ORGANIZER") return "/organizer/dashboard";
-    return "/my-bookings";
+    return "/dashboard";
   };
 
   return (
-    <nav className="bg-temple-brown shadow-lg sticky top-0 z-50">
+    <nav style={{ background: "#1A0A00" }} className="shadow-lg sticky top-0 z-50 border-b border-orange-900">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <span className="text-2xl">🕌</span>
-          <span className="text-gold font-display text-xl font-bold tracking-wider">DarshanEase</span>
+          <span className="font-display text-xl font-bold tracking-wider" style={{ color: "#D4AF37" }}>
+            DarshanEase
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-orange-100 hover:text-gold transition font-body text-lg">Home</Link>
-          <Link to="/temples" className="text-orange-100 hover:text-gold transition font-body text-lg">Temples</Link>
+          <Link to="/" className="font-body text-lg text-orange-100 hover:text-yellow-400 transition">Home</Link>
+          <Link to="/temples" className="font-body text-lg text-orange-100 hover:text-yellow-400 transition">Temples</Link>
           {user && (
             <>
-              <Link to={getDashboardLink()} className="text-orange-100 hover:text-gold transition font-body text-lg">Dashboard</Link>
-              <Link to="/donate" className="text-orange-100 hover:text-gold transition font-body text-lg">Donate</Link>
+              <Link to={getDashboardLink()} className="font-body text-lg text-orange-100 hover:text-yellow-400 transition">Dashboard</Link>
+              <Link to="/donate" className="font-body text-lg text-orange-100 hover:text-yellow-400 transition">Donate</Link>
             </>
           )}
         </div>
@@ -43,15 +45,19 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-3">
           {user ? (
             <div className="flex items-center gap-3">
-              <span className="text-orange-200 font-body text-lg">🙏 {user.name}</span>
-              <button onClick={handleLogout} className="btn-secondary text-sm border-orange-300 text-orange-300 hover:bg-orange-700 hover:border-orange-700">
+              <span className="font-body text-base text-orange-200">🙏 {user.name}</span>
+              <button onClick={handleLogout}
+                className="font-display text-sm px-4 py-2 rounded border border-orange-400 text-orange-300 hover:bg-orange-800 transition">
                 Logout
               </button>
             </div>
           ) : (
             <>
-              <Link to="/login" className="text-orange-200 hover:text-gold font-body text-lg transition">Login</Link>
-              <Link to="/register" className="btn-primary text-sm">Register</Link>
+              <Link to="/login" className="font-body text-lg text-orange-100 hover:text-yellow-400 transition">Login</Link>
+              <Link to="/register"
+                className="font-display text-sm px-5 py-2 rounded bg-orange-600 text-white hover:bg-orange-700 transition shadow">
+                Register
+              </Link>
             </>
           )}
         </div>
@@ -64,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-temple px-4 pb-4 flex flex-col gap-3 border-t border-orange-800">
+        <div style={{ background: "#2A0F00" }} className="md:hidden px-4 pb-4 flex flex-col gap-3 border-t border-orange-900">
           <Link to="/" className="text-orange-100 font-body text-lg py-1" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/temples" className="text-orange-100 font-body text-lg py-1" onClick={() => setMenuOpen(false)}>Temples</Link>
           {user ? (

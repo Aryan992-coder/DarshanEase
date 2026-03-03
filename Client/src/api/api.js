@@ -60,3 +60,12 @@ export const getOrgSlots     = () => API.get("/organizer/slots");
 export const getOrgBookings  = () => API.get("/organizer/bookings");
 
 export default API;
+
+// Admin extras
+export const getAdminOrganizers  = ()         => API.get("/admin/organizers");
+export const createOrganizer     = (data)     => API.post("/admin/organizers", data);
+export const deleteUser          = (id)       => API.delete(`/admin/users/${id}`);
+export const getAdminTemples     = ()         => API.get("/admin/temples");
+export const getAdminBookings    = ()         => API.get("/admin/bookings");
+export const addTempleImage      = (id, url)  => API.post(`/temples/${id}/images`, { imageUrl: url });
+export const removeTempleImage   = (id, url)  => API.delete(`/temples/${id}/images`, { data: { imageUrl: url } });

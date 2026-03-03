@@ -52,10 +52,13 @@ const Temples = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((temple) => (
               <div key={temple._id} className="card overflow-hidden hover:-translate-y-1 transition-transform">
-                <div className="h-44 flex items-center justify-center text-7xl"
-                  style={{ background: "linear-gradient(135deg, #FF6B00, #6B0F1A)" }}>
-                  🛕
-                </div>
+                {temple.images && temple.images.length > 0 ? (
+                  <img src={temple.images[0]} alt={temple.name} className="w-full h-44 object-cover"
+                    onError={(e) => { e.target.style.display='none'; }} />
+                ) : (
+                  <div className="h-44 flex items-center justify-center text-7xl"
+                    style={{ background: "linear-gradient(135deg, #FF6B00, #6B0F1A)" }}>🛕</div>
+                )}
                 <div className="p-6">
                   <h3 className="font-display text-orange-900 text-xl font-semibold mb-1">{temple.name}</h3>
                   <p className="font-body text-gray-500 text-sm mb-1">📍 {temple.location}</p>

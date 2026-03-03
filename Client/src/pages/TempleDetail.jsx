@@ -56,10 +56,18 @@ const TempleDetail = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero */}
-      <div className="h-56 flex items-center justify-center text-8xl"
-        style={{ background: "linear-gradient(135deg, #3D1C02, #6B0F1A)" }}>
-        🛕
-      </div>
+      {temple.images && temple.images.length > 0 ? (
+        <div className="relative h-64 overflow-hidden">
+          <img src={temple.images[0]} alt={temple.name} className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.35)" }} />
+          <div className="absolute bottom-4 left-6">
+            <h1 className="font-display text-3xl text-white font-bold">{temple.name}</h1>
+          </div>
+        </div>
+      ) : (
+        <div className="h-56 flex items-center justify-center text-8xl"
+          style={{ background: "linear-gradient(135deg, #3D1C02, #6B0F1A)" }}>🛕</div>
+      )}
 
       <div className="max-w-5xl mx-auto px-4 py-10">
         {/* Temple Info */}
