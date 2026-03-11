@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:process.env.NODE_ENV === 'production'
-    ? 'https://darshanease-api.vercel.app/api'
+  baseURL: process.env.NODE_ENV === 'production'
+    ? 'https://darshan-ease-phi.vercel.app/api'
     : '/api',
 });
 
