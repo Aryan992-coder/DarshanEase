@@ -15,7 +15,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://darshanease.vercel.app'  // your frontend Vercel URL
+    'https://darshan-ease-2br8.vercel.app'  // your frontend Vercel URL
   ],
   credentials: true
 }));
